@@ -21,4 +21,7 @@ public class SongsRepository {
             new Song("Padi", "Mahadewi", 1998)
     );
 
+    public List<Song> getAll() {
+        return songs;
+    }
 }
