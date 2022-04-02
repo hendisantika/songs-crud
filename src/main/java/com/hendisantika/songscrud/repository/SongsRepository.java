@@ -4,6 +4,7 @@ import com.hendisantika.songscrud.model.Song;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by IntelliJ IDEA.
@@ -23,5 +24,9 @@ public class SongsRepository {
 
     public List<Song> getAll() {
         return songs;
+    }
+
+    public List<Song> getAllByYear(int iYear) {
+        return songs.stream().filter(song -> song.getReleaseYear() == iYear).collect(Collectors.toList());
     }
 }
