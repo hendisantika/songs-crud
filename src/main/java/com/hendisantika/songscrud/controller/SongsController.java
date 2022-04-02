@@ -2,6 +2,9 @@ package com.hendisantika.songscrud.controller;
 
 import com.hendisantika.songscrud.repository.SongsRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,4 +23,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class SongsController {
 
     private SongsRepository songsRepository;
+
+    @GetMapping
+    public ResponseEntity<?> getAll() {
+        return new ResponseEntity<>(songsRepository.getAll(), HttpStatus.OK);
+    }
 }
