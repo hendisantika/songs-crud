@@ -1,7 +1,6 @@
 package com.hendisantika.songscrud.controller;
 
 import com.hendisantika.songscrud.repository.SongsRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,10 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/api/songs")
-@AllArgsConstructor
 public class SongsController {
 
-    private SongsRepository songsRepository;
+    private final SongsRepository songsRepository;
+
+
+    public SongsController() {
+        this.songsRepository = new SongsRepository();
+    }
 
     @GetMapping
     public ResponseEntity<?> getAll() {
